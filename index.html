@@ -14,32 +14,64 @@
         <ul>
             <li><a href="#about">研究室紹介</a></li>
             <li><a href="#research">研究内容</a></li>
+            <li><a href="#slider">活動紹介</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
         </ul>
     </nav>
+
     <section id="about">
         <h2>研究室紹介</h2>
         <p>当研究室では、航法技術やセンシング技術を中心に研究を行っています。</p>
-        <!-- ボタンを追加 -->
-        <button onclick="showMessage()">メッセージを表示</button>
     </section>
+
     <section id="research">
         <h2>研究内容</h2>
         <p>主に自律移動ロボットの開発や、センサー融合に関する研究を行っています。</p>
     </section>
+
+    <section id="slider">
+        <h2>研究室の活動</h2>
+        <div class="slider">
+            <div class="slide active"><img src="image1.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="image2.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="image3.jpg" alt="Slide 3"></div>
+        </div>
+    </section>
+
     <section id="contact">
         <h2>お問い合わせ</h2>
-        <p>Email: example@example.com</p>
+        <form action="submit_form.php" method="post">
+            <label for="name">名前:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">メッセージ:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">送信</button>
+        </form>
     </section>
+
     <footer>
         <p>© 2024 航法・センシング工学研究室</p>
     </footer>
 
-    <!-- JavaScriptを追加 -->
+    <!-- JavaScript -->
     <script>
-        function showMessage() {
-            alert("こんにちは、航法・センシング工学研究室へようこそ！");
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
         }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000);
     </script>
 </body>
 </html>
