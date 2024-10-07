@@ -43,6 +43,27 @@ footer {
     padding: 1rem;
 }
 
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide img {
+    width: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -56,3 +77,18 @@ button:hover {
     background-color: #555;
 }
 
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    nav ul li {
+        padding: 0.5rem;
+    }
+
+    section {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+}
